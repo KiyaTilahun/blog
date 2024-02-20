@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+           $table->string('title');
+           $table->unsignedBigInteger('user_id');
+           $table->string('body');
+           $table->string('categories');
+           $table->string('image');
+           $table->foreign('user_id')->references('id')->on('users')->cascadeOnUpdate();
             $table->timestamps();
         });
     }
