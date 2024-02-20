@@ -14,7 +14,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        $post=Post::where('user_id',auth()->id());
+        $post=Post::where('user_id',auth()->id())->get();
+       
         return view('posts.index',compact('post'));
         //
     }
@@ -49,7 +50,7 @@ class PostController extends Controller
 
         $categoryNames = Category::whereIn('id', $validatedData['categories'])->pluck('name')->toArray();
         // categories in database
-        $post->categories = implode(',', $categoryNames);
+        $post->category = implode(',', $categoryNames);
         $photo = $validatedData['photo'];
 
         $extension = $photo->getClientOriginalExtension();
@@ -80,6 +81,14 @@ return to_route('users.index');
      */
     public function edit(string $id)
     {
+      
+        $post = Post::find($id);
+        
+        return view('posts.edit',compact('post'));
+        
+
+
+       
         //
     }
 

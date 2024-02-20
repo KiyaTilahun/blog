@@ -16,7 +16,7 @@ return new class extends Migration
            $table->string('title');
            $table->unsignedBigInteger('user_id');
            $table->string('body');
-           $table->string('categories');
+           $table->string('category');
            $table->string('image');
            $table->foreign('user_id')->references('id')->on('users')->cascadeOnUpdate();
             $table->timestamps();
