@@ -41,7 +41,7 @@
                         max-height: 100px;" class="rounded img-fluid d-block" alt="Product Image"></div></td>
 
                  <td>
-                    <a href="#" title="View" class="btn btn-primary m-1"><i class="fas fa-eye"></i></a>
+                    <a href="{{ route('posts.display', ['id' => $post->id]) }}" title="View" class="btn btn-primary m-1"><i class="fas fa-eye"></i></a>
                      <a href="{{ route('posts.edit', ['post' => $post->id])}}" class="btn btn-success m-1 " title="Edit"><i class="fas fa-edit"></i></a>
                     <a href="#" title="Delete" class="btn btn-danger m-1"><i class="fa fa-trash" aria-hidden="true"></i></i></a>
                     </td>

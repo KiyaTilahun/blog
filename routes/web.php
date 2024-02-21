@@ -23,6 +23,7 @@ Route::get('/', function () {
 Auth::routes();
 
 
+Route::get('/posts/{id}', [PostController::class, 'display'])->name('posts.display');
 
 Route::resource('/users', UserController::class)->middleware('auth');
 Route::resource('/posts', PostController::class)->middleware('auth');
