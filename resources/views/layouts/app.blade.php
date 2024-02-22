@@ -12,6 +12,14 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.0-rc.2/dist/quill.snow.css" rel="stylesheet" />
+    
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.0.0/css/dataTables.dataTables.css" />
+    
+ 
+ 
     @yield('script')
 
     <!-- Scripts -->
@@ -50,6 +58,12 @@
                                 </li>
                             @endif
                         @else
+                        
+                                <a  href="{{route('users.index')}} "class="nav-item nav-link  {{ (request()->is('users*')) ? 'active' : '' }}" href="#">Home <span class="sr-only">(current)</span></a>
+                                <a class="nav-item nav-link {{ (request()->is('posts*')) ? 'active' : '' }}" href="{{route('posts.index')}}">My Posts</a>
+                                <a class="nav-item nav-link" href="{{route('categories.index')}}">Categories</a>
+                                <a class="nav-item nav-link disabled" href="#">Disabled</a>
+                            
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
